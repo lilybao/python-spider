@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-import requests, hashlib, sys, click, re, base64, binascii, json, os
+import  requests, hashlib, sys, re, base64, binascii, json, os,click
 from Crypto.Cipher import AES
 from http import cookiejar
 
@@ -228,7 +228,7 @@ if __name__ == '__main__':
 	music_list_name = 'music_list.txt'
 	# 如果music列表存在, 那么开始下载
 	if os.path.exists(music_list_name):
-		with open(music_list_name, 'r') as f:
+		with open(music_list_name, 'rt', encoding='utf-8') as f:
 			music_list = list(map(lambda x: x.strip(), f.readlines()))
 		for song_num, song_name in enumerate(music_list):
 			netease.download_song_by_search(song_name,song_num + 1)
